@@ -98,14 +98,16 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     }
 
     override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
-        super.onSaveInstanceState(outState, outPersistentState)
         outState?.putInt(KEY_REVENUE, revenue)
         outState?.putInt(KEY_DESSERTS_SOLD, dessertsSold)
         outState?.putInt(KEY_DESSERT_TIMER, dessertTimer.secondsCount)
+        Timber.i("onSaveInstanceState Called")
+        super.onSaveInstanceState(outState, outPersistentState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
+        Timber.i("onRestoreInstanceState called")
     }
 
     /**
